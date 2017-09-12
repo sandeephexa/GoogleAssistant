@@ -1,13 +1,11 @@
-var express = require("express");
-const app = express();
-var bodyParser = require("body-parser");
-var ApiAiApp = require("actions-on-google").ApiAiAssistant;
-// const apps = new ApiAiApp({request: request, response: response});
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.get('/',function(req,res)
-{
-    res.send("getting");
+var express = require('express');
+var bodyParser = require('body-parser');
+var apps = express();
+apps.use(bodyParser.json());
+let ApiAiApp = require('actions-on-google').ApiAiAssistant;
+  
+apps.get("/", function (req, res) {
+    res.send("Server is running");
 });
 function handleIntents(req,res)
 {
@@ -22,13 +20,11 @@ function handleIntents(req,res)
             app1.ask("Sure ! give me your airport name. test");
             break;
     }
-    
 }
-app.post('/',function(req,res)
-{
-    console.log("hello");
+apps.post("/", function (req, res) {
+    handleIntents(req, res);
+
 });
-app.listen(process.env.PORT || 3008, function(message)
-{
-    console.log("listening on 3008");
+apps.listen(process.env.PORT || 3000, function () {
+
 });
