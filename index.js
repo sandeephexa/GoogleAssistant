@@ -16,20 +16,24 @@ function handleIntents(req,res)
 
     if(intent == "WelcomeIntent")
     {
-       // res.send("Hello ! what can i do for you? ");
-        apps.ask("Hello ! what can i do for you?");
+        //res.send("Hello ! what can i do for you? ");
+         apps.ask("Hello ! what can i do for you? test");
     }
-    else if(intent = "FlightStatusByAirport")
+    else if(intent == "FlightStatusByAirport")
     {
-        res.send("Sure ! provide your airport name");
+         apps.ask("Sure ! provide your airport name test");
+       // res.send("Sure ! provide your airport name");
     }
     else if(intent == "AirportNameIntent")
     {
-        res.send("tell me the Departure Date along with year. ex: 10 september 2017");
+        apps.ask("tell me the Departure Date along with year. ex: 10 september 2017");
     }
-    else if(intent = "AirLineNameIntent")
+    else if(intent == "AirLineNameIntent")
     {
-        res.send("specify the airline name");
+        apps.ask("specify the airline name");
+    }
+    else{
+        apps.ask("sorry can you say that again ");
     }
     
 }
