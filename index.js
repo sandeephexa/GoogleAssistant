@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var apps = express();
 apps.use(bodyParser.json());
-let ApiAiApp = require('actions-on-google').FlightStats;
+let ApiAiApp = require('actions-on-google').ApiAiAssistant;
 
 apps.get("/", function (req, res) {
     res.send("Server is running");
