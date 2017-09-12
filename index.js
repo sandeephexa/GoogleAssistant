@@ -16,7 +16,8 @@ function handleIntents(req,res)
 
     if(intent == "WelcomeIntent")
     {
-        res.send("Hello ! what can i do for you? ");
+       // res.send("Hello ! what can i do for you? ");
+        apps.ask("Hello ! what can i do for you?");
     }
     else if(intent = "FlightStatusByAirport")
     {
