@@ -9,9 +9,9 @@ apps.get("/", function (req, res) {
 });
 function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
-
+    let flightid = app1.getArgument('flightid');
     var intent = app1.getIntent();
-  
+    console.log(intent);
     switch (intent) {
         case 'WelcomeIntent':
             app1.ask("hello ! what can i do for you ? test");
@@ -25,7 +25,6 @@ apps.post("/", function (req, res) {
     callApi(req, res);
 
 });
-apps.listen(process.env.PORT || 3008, function () {
+apps.listen(process.env.PORT || 3000, function () {
 
 });
-console.log("test");
