@@ -8,17 +8,18 @@ apps.get("/", function (req, res) {
     res.send("Server is running");
 });
 function callApi(req, res) {
+    console.log("this is response" + res);
     const app1 = new ApiAiApp({ request: req, response: res });
-    
+
     var intent = app1.getIntent();
-    console.log("This is intent name"+intent);
+    console.log("This is intent name" + intent);
     switch (intent) {
         case 'WelcomeIntent':
             app1.ask("Hello ! test");
             break;
         //case 'FlightStatusByAirport':
         //    app1.ask("Sure ");
-         //   break;
+        //   break;
     }
 }
 apps.post("/", function (req, res) {
@@ -26,5 +27,5 @@ apps.post("/", function (req, res) {
 
 });
 apps.listen(process.env.PORT || 3000, function () {
-console.log("testing");
+    console.log("testing");
 });
