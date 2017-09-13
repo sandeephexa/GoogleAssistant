@@ -1,5 +1,5 @@
 {
-  "name": "googleassistant",
+  "name": "flightstats",
   "version": "1.0.0",
   "description": "creating google assistant for weather",
   "main": "index.js",
