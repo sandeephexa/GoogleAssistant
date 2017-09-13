@@ -9,7 +9,7 @@ apps.get("/", function (req, res) {
 });
 function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
-    let flightid = app1.getArgument('flightid');
+    
     var intent = app1.getIntent();
     switch (intent) {
         case 'WelcomeIntent':
