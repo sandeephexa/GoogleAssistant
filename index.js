@@ -16,7 +16,7 @@ function callApi(req, res) {
     var intent = app1.getIntent();
    if(intent == "WelcomeIntent")
    {
-       app1.ask("Hello ! What can i do for you ?");
+       app1.ask("Hello ! What can i do for you test?");
    }
 }
 apps.post("/", function (req, res) {
