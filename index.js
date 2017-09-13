@@ -11,13 +11,12 @@ function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
     let flightid = app1.getArgument('flightid');
     var intent = app1.getIntent();
-    console.log(intent);
     switch (intent) {
         case 'WelcomeIntent':
-            app1.ask("hello ! what can i do for you ? test");
+            app1.ask("Hello ! test");
             break;
         case 'FlightStatusByAirport':
-            app1.ask("Sure ! give me your airport name. test");
+            app1.ask("Sure ");
             break;
     }
 }
