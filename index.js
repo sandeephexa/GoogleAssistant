@@ -11,13 +11,14 @@ function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
     
     var intent = app1.getIntent();
+    console.log("This is intent name"+intent);
     switch (intent) {
         case 'WelcomeIntent':
             app1.ask("Hello ! test");
             break;
-        case 'FlightStatusByAirport':
-            app1.ask("Sure ");
-            break;
+        //case 'FlightStatusByAirport':
+        //    app1.ask("Sure ");
+         //   break;
     }
 }
 apps.post("/", function (req, res) {
@@ -25,5 +26,5 @@ apps.post("/", function (req, res) {
 
 });
 apps.listen(process.env.PORT || 3000, function () {
-
+console.log("testing");
 });
