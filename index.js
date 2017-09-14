@@ -94,7 +94,8 @@ function callApi(req, res) {
                                 var numFlights = Object.keys(myObject).length;
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
-                                app1.ask(`number of flights departing at this time ${numFlights}. flight Status : ${flightstatuses} from ${from} to ${to}${countryd} departs at ${depart} and arrives at ${arrive} .`);
+                                app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
+                               // app1.ask(`number of flights departing at this time ${numFlights}. flight Status : ${flightstatuses} from ${from} to ${to}${countryd} departs at ${depart} and arrives at ${arrive} .`);
                                // var estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal;
                                // var estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal;
                   
