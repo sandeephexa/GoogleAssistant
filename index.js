@@ -88,48 +88,8 @@ function callApi(req, res) {
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
-                                var actualFlightStatus =checkStatus(flightstatuses);
-                                function checkStatus(flightStatuses)
-                                {
-
-                                    var result2 = filghtStatuses;
-                                    var result = '';
-                                    switch (result2) {
-                                    case 'A':
-                                             result = "Active";
-                                             break;
-                                             
-                                    case 'C':
-                                             result = "Cancelled";
-                                            break;
-                                     case 'D':
-                                             result = "Diverted";
-                                            break;
-                                    case 'DN':
-                                         result = "Data Source need";
-                                        break;
-                                    case 'L':
-                                         result = "Landed";
-                                        break;
-                                    case 'NO':
-                                        result = "Not Operational";
-                                        break;
-                                    case 'R':
-                                         result = "Redeirected";
-                                         break;
-                                     case 'S':
-                                         result = "Scheduled";
-                                         break;
-                                    case 'U':
-                                         result = "Unknown";
-                                         break;
-
-                                }
-                                return result;
-                                }
-                                    console.log(actualFlightStatus);
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status is ${actualFlightStatus} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                                 app1.ask(` flight Status is ${flightstatuses} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
                                
                   
 
@@ -152,4 +112,4 @@ apps.post("/", function (req, res) {
 });
 apps.listen(process.env.PORT || 3000, function () {
 
-}); 
+});
