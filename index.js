@@ -80,8 +80,8 @@ function callApi(req, res) {
   
                                 var source = fligarriv.appendix.airports[0];
                                 var destination = fligarriv.appendix.airports[1];
-                               // var airports = source.name;
-                                var airports = fligarriv.appendix.airports[1].name;
+                                var airports = source.name;
+                               // var airports = fligarriv.appendix.airports[1].name;
                                 var citys = source.city;
                                 var countrys = source.countryName;
                                 var airportd = destination.name;
