@@ -78,20 +78,21 @@ function callApi(req, res) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
-                                let source = fligarriv.appendix.airports[0];
-                                let destination = fligarriv.appendix.airports[1];
-                                let airports = source.name;
-                                let citys = source.city;
-                                let countrys = source.countryName;
-                                let airportd = destination.name;
-                                let cityd = destination.city;
-                                let countryd = destination.countryName;
-                                let flightstatuses = fligarriv.flightStatuses[0].status;
+                                var source = fligarriv.appendix.airports[0];
+                                var destination = fligarriv.appendix.airports[1];
+                                var airports = source.name;
+                                var citys = source.city;
+                                var countrys = source.countryName;
+                                var airportd = destination.name;
+                                var cityd = destination.city;
+                                var countryd = destination.countryName;
+                                var flightstatuses = fligarriv.flightStatuses[0].status;
+                                console.log(flightstatuses+"=>"+countryd);
                                 let scheduledd=fligarriv.flightStatuses[0].operationalTimes.scheduledGateArrival.dateLocal.split('T')[1];
                                 let scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal.split('T')[1];
                                 let estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal.split('T')[1];
                                 let estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal.split('T')[1];
-                                console.log(flightstatuses+"=>"+scheduledd);
+                            
                                 app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}. Estimated Departure ${estimatedd} , Arrival ${estimateda}. Schedule Departure ${scheduledd} , Arrival ${scheduleda}`);
 
 
