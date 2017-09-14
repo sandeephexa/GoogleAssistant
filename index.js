@@ -79,17 +79,17 @@ function callApi(req, res) {
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
                                 var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
-                               var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
-                               // var source = fligarriv.appendix.airports[0];
-                               // var destination = fligarriv.appendix.airports[1];
-                               // var airports = source.name;
-                               // var airports = fligarriv.appendix.airports[1].name;
+                                var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
+                                var source = fligarriv.appendix.airports[0];
+                                var destination = fligarriv.appendix.airports[1];
+                                var airports = source.name;
+                                var airports = fligarriv.appendix.airports[1].name;
                                
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status is ${flightstatuses}, departing from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                                 app1.ask(` flight Status is ${flightstatuses} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
                                
                   
 
