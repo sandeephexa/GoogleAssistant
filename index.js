@@ -45,11 +45,11 @@ var callrestapi = function (apid, apkey,airports, year, month, day,hour) {
 function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
     var intent = app1.getIntent();
-    
+    console.log("Intent Nasme"+intent);
     let airports = app1.getArgument('Airports');
     let hour = app1.getArgument('number');
     //let carrier = app1.getArgument('Airlines');
-    let flightdate = app1.getArgument('date').split('-');
+    var flightdate = app1.getArgument('date').toString().split('-');
    console.log(app1.getArgument('date'));
     //let flightno = app1.getArgument('any');
     //let carrier = app1.getArgument('flight_names');
