@@ -4,7 +4,7 @@ var Promise = require('promise');
 var reqnew = require('request');
 var apps = express();
 apps.use(bodyParser.json());
-var flightstatus = { 'A': 'Active', 'C': 'Cancelled', 'D': 'Diverted', 'DN': 'Data Source Need', 'L': 'Landed', 'NO': 'Not Operational', 'R': 'Redirected', 'S': 'Scheduled', 'U': 'Unknown' };
+
 let ApiAiApp = require('actions-on-google').ApiAiAssistant;
 const apid = '6aac18a6';
 const apkey = '40a7e359cb020a07ead5159c2d5d8162';
@@ -86,10 +86,35 @@ function callApi(req, res) {
                                 var airports = fligarriv.appendix.airports[1].name;
                                
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
+                                
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
-                               // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status is ${flightstatuses} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                                
+                                //actual status
+                                var statusCodes = {  
+                                "A":"Active",
+                                "C":"Cancelled",
+                                "D":"Diverted",
+                                "DN":"Data Source Need",
+                                "L":"Landed",
+                                "NO":"Not Operational",
+                                "R":"Redirected",
+                                "S":"Scheduled",
+                                "U":"Unknown"
+                                };
+                                var result = "";
+                                var actualStatus = getStatus(flightstatuses);
+
+
+                                function getStatus(s)
+                                {
+                                var myStatus = s ;  // convert num to string
+                                if(statusCodes[myStatus])
+                                        return  statusCodes[myStatus];
+                                
+                                }
+                                 // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
+                                  app1.ask(` flight Status is ${actualStatus} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
                                
                   
 
@@ -112,4 +137,4 @@ apps.post("/", function (req, res) {
 });
 apps.listen(process.env.PORT || 3000, function () {
 
-});  
+}); 
