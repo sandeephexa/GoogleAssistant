@@ -51,22 +51,23 @@ function callApi(req, res) {
     
     if (intent == "FlightStatusByAirport") 
     {
-    let airports = app1.getArgument('Airports');
+            let airports = app1.getArgument('Airports');
     let hour = app1.getArgument('time');
+    //let carrier = app1.getArgument('Airlines');
     var flightdate = app1.getArgument('date');
     console.log(flightdate.toString().split('-'));
-   var date = flightdate.split('-');
+   var flightdate1 = flightdate.split('-');
     console.log(flightdate1);
-        return callrestapi(apid, apkey,airports ,date[0], date[1], date[2],hour).then(function (result1) 
+        return callrestapi(apid, apkey,airports ,flightdate1[0], flightdate1[1], flightdate1[2],hour).then(function (result1) 
         {
           
             var fligarriv = result1;
             if (fligarriv) {
-                console.log(fligarriv.hasOwnProperty('error')+"errorOccured");
+                console.log(fligarriv.hasOwnProperty('error')+"srini231211987");
                 console.log(JSON.stringify(fligarriv));
                 if(fligarriv.hasOwnProperty('error'))
             {
-                  
+                console.log("sromojk");    
                 app1.ask(fligarriv.error.errorMessage);
             }
              else   if (fligarriv.hasOwnProperty('appendix')) {
@@ -79,7 +80,11 @@ function callApi(req, res) {
   
                                 var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
                                 var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
-    
+                                var source = fligarriv.appendix.airports[0];
+                                var destination = fligarriv.appendix.airports[1];
+                                var airports = source.name;
+                                var airports = fligarriv.appendix.airports[1].name;
+                               
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
@@ -108,9 +113,8 @@ function callApi(req, res) {
                                         return  statusCodes[myStatus];
                                 
                                 }
-                                 
-                                  app1.ask(` flight Status ${actualStatus}, /n
-                                   departing  from ${dep} to ${arr}  /ndeparts at ${departure} and arrives at ${arrival} .`);
+                                 // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
+                                  app1.ask(` flight Status is ${actualStatus} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
                                
                   
 
