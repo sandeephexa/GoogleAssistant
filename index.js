@@ -71,10 +71,13 @@ function callApi(req, res) {
                 app1.ask(fligarriv.error.errorMessage);
             }
              else   if (fligarriv.hasOwnProperty('appendix')) {
+                 console.log(fligarriv.hasOwnProperty('appendix')+"simde111");
                     if (fligarriv.appendix.hasOwnProperty('airlines')) {
+                        console.log(fligarriv.appendix.hasOwnProperty('airlines')+"simde111");
                         if (fligarriv.appendix.airlines[0].active) {
-                            console.log(fligarriv.appendix.airlines[0].active);
+                            console.log(fligarriv.appendix.airlines[0].active+"5658fd55fdf5");
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
+                                  console.log(fligarriv.appendix.airlines[0].active+"56fdsfds33458fd55fdf5");
                                 let source = fligarriv.appendix.airports[0];
                                 let destination = fligarriv.appendix.airports[1];
                                 let airports = source.name;
