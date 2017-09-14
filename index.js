@@ -46,9 +46,9 @@ function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
     var intent = app1.getIntent();
     console.log("Intent Nasme"+intent);
-    //let flightno = app1.getArgument('any');
-    //let carrier = app1.getArgument('flight_names');
-    //console.log(intent + "=>" + apid + "=>" + apkey + "=>" + carrier + "=>" + flightno + "=>" + flightdate[2] + "=>" + flightdate[1] + "=>" + flightdate[0]);
+    
+    
+    
     if (intent == "FlightStatusByAirport") 
     {
             let airports = app1.getArgument('Airports');
@@ -82,6 +82,8 @@ function callApi(req, res) {
                                 var destination = fligarriv.appendix.airports[1];
                                 var airports = source.name;
                                // var airports = fligarriv.appendix.airports[1].name;
+                               var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
+                               var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
                                 var citys = source.city;
                                 var countrys = source.countryName;
                                 var airportd = destination.name;
@@ -91,11 +93,8 @@ function callApi(req, res) {
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status : ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd} departs at ${departure} and arrives at ${arrival} .`);
-                                var scheduledd=fligarriv.flightStatuses[0].operationalTimes.scheduledGateArrival.dateLocal;
-                                var scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal;
-                                var estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal;
-                                var estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal;
+                                 app1.ask(` flight Status : ${flightstatuses} from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                               
                   
 
 
