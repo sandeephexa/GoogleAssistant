@@ -78,24 +78,19 @@ function callApi(req, res) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
-                                var source = fligarriv.appendix.airports[0];
-                                var destination = fligarriv.appendix.airports[1];
-                                var airports = source.name;
+                                var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
+                               var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
+                               // var source = fligarriv.appendix.airports[0];
+                               // var destination = fligarriv.appendix.airports[1];
+                               // var airports = source.name;
                                // var airports = fligarriv.appendix.airports[1].name;
-                                var citys = source.city;
-                                var countrys = source.countryName;
-                                var airportd = destination.name;
-                                var cityd = destination.city;
-                                var countryd = destination.countryName;
+                               
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status : ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd} departs at ${departure} and arrives at ${arrival} .`);
-                                var scheduledd=fligarriv.flightStatuses[0].operationalTimes.scheduledGateArrival.dateLocal;
-                                var scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal;
-                                var estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal;
-                                var estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal;
+                                 app1.ask(` flight Status : ${flightstatuses} departing fromm from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                               
                   
 
 
