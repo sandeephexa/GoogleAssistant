@@ -46,18 +46,18 @@ function callApi(req, res) {
     const app1 = new ApiAiApp({ request: req, response: res });
     var intent = app1.getIntent();
     console.log("Intent Nasme"+intent);
-    let airports = app1.getArgument('Airports');
+    //let flightno = app1.getArgument('any');
+    //let carrier = app1.getArgument('flight_names');
+    //console.log(intent + "=>" + apid + "=>" + apkey + "=>" + carrier + "=>" + flightno + "=>" + flightdate[2] + "=>" + flightdate[1] + "=>" + flightdate[0]);
+    if (intent == "FlightStatusByAirport") 
+    {
+            let airports = app1.getArgument('Airports');
     let hour = app1.getArgument('number');
     //let carrier = app1.getArgument('Airlines');
     var flightdate = app1.getArgument('date');
     console.log(flightdate.toString().split('-'));
    var flightdate1 = flightdate.split('-');
     console.log(flightdate1);
-    //let flightno = app1.getArgument('any');
-    //let carrier = app1.getArgument('flight_names');
-    //console.log(intent + "=>" + apid + "=>" + apkey + "=>" + carrier + "=>" + flightno + "=>" + flightdate[2] + "=>" + flightdate[1] + "=>" + flightdate[0]);
-    if (intent == "FlightStatusByAirport") 
-    {
         return callrestapi(apid, apkey,airports ,flightdate1[0], flightdate1[1], flightdate1[2],hour).then(function (result1) 
         {
           
