@@ -89,7 +89,7 @@ function callApi(req, res) {
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status : ${flightstatuses} departing fromm from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                                 app1.ask(` flight Status is ${flightstatuses}, departing from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
                                
                   
 
