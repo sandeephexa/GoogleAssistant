@@ -71,13 +71,13 @@ function callApi(req, res) {
                 app1.ask(fligarriv.error.errorMessage);
             }
              else   if (fligarriv.hasOwnProperty('appendix')) {
-                 console.log(fligarriv.hasOwnProperty('appendix')+"simde111");
+               
                     if (fligarriv.appendix.hasOwnProperty('airlines')) {
-                        console.log(fligarriv.appendix.hasOwnProperty('airlines')+"simde111");
+     
                         if (fligarriv.appendix.airlines[0].active) {
-                            console.log(fligarriv.appendix.airlines[0].active+"5658fd55fdf5");
+
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
-                                  console.log(fligarriv.appendix.airlines[0].active+"56fdsfds33458fd55fdf5");
+  
                                 let source = fligarriv.appendix.airports[0];
                                 let destination = fligarriv.appendix.airports[1];
                                 let airports = source.name;
@@ -91,6 +91,7 @@ function callApi(req, res) {
                                 let scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal.split('T')[1];
                                 let estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal.split('T')[1];
                                 let estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal.split('T')[1];
+                                console.log(flightstatuses+"=>"+scheduledd);
                                 app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}. Estimated Departure ${estimatedd} , Arrival ${estimateda}. Schedule Departure ${scheduledd} , Arrival ${scheduleda}`);
 
 
