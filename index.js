@@ -88,7 +88,7 @@ function callApi(req, res) {
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
-                                var actualFligthStatus =checkStatus(flightstatuses);
+                                var actualFlightStatus =checkStatus(flightstatuses);
                                 function checkStatus(flightStatuses)
                                 {
 
@@ -127,9 +127,9 @@ function callApi(req, res) {
                                 }
                                 return result;
                                 }
-
+                                    console.log(actualFlightStatus);
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status is ${actualFligthStatus} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
+                                 app1.ask(` flight Status is ${actualFlightStatus} departing  from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
                                
                   
 
