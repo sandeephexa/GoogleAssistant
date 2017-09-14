@@ -96,8 +96,10 @@ function callApi(req, res) {
                                 var actualFligthStatus =checkStatus(flightstatuses);
                                 function checkStatus(flightStatuses)
                                 {
+
+                                    var result2 = filghtStatuses;
                                     var result = '';
-                                    switch (new Date().getDay()) {
+                                    switch (result2) {
                                     case 'A':
                                              result = "Active";
                                              break;
