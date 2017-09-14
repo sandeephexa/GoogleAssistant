@@ -80,10 +80,10 @@ function callApi(req, res) {
   
                                 var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
                                 var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
-                                var source = fligarriv.appendix.airports[0];
-                                var destination = fligarriv.appendix.airports[1];
-                                var airports = source.name;
-                                var airports = fligarriv.appendix.airports[1].name;
+                               // var source = fligarriv.appendix.airports[0];
+                               // var destination = fligarriv.appendix.airports[1];
+                               // var airports = source.name;
+                               // var airports = fligarriv.appendix.airports[1].name;
                                
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 
