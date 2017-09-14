@@ -82,8 +82,6 @@ function callApi(req, res) {
                                 var destination = fligarriv.appendix.airports[1];
                                 var airports = source.name;
                                // var airports = fligarriv.appendix.airports[1].name;
-                               var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
-                               var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
                                 var citys = source.city;
                                 var countrys = source.countryName;
                                 var airportd = destination.name;
@@ -92,50 +90,12 @@ function callApi(req, res) {
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
-                                //checking status
-                                var actualFligthStatus =checkStatus(flightstatuses);
-                                function checkStatus(flightStatuses)
-                                {
-
-                                    var result2 = filghtStatuses;
-                                    var result = '';
-                                    switch (result2) {
-                                    case 'A':
-                                             result = "Active";
-                                             break;
-                                             
-                                    case 'C':
-                                             result = "Cancelled";
-                                            break;
-                                     case 'D':
-                                             result = "Diverted";
-                                            break;
-                                    case 'DN':
-                                         result = "Data Source need";
-                                        break;
-                                    case 'L':
-                                         result = "Landed";
-                                        break;
-                                    case 'NO':
-                                        result = "Not Operational";
-                                        break;
-                                    case 'R':
-                                         result = "Redeirected";
-                                         break;
-                                     case 'S':
-                                         result = "Scheduled";
-                                         break;
-                                    case 'U':
-                                         result = "Unknown";
-                                         break;
-
-                                }
-                                return result;
-                                }
-                              //  var flightstatus = { 'A': 'Active', 'C': 'Cancelled', 'D': 'Diverted', 'DN': 'Data Source Need', 'L': 'Landed', 'NO': 'Not Operational', 'R': 'Redirected', 'S': 'Scheduled', 'U': 'Unknown' };
                                // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                 app1.ask(` flight Status : ${actualFligthStatus} from ${dep} to ${arr} departs at ${departure} and arrives at ${arrival} .`);
-                                
+                                 app1.ask(` flight Status : ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd} departs at ${departure} and arrives at ${arrival} .`);
+                                var scheduledd=fligarriv.flightStatuses[0].operationalTimes.scheduledGateArrival.dateLocal;
+                                var scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal;
+                                var estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal;
+                                var estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal;
                   
 
 
