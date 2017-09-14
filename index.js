@@ -52,7 +52,7 @@ function callApi(req, res) {
     if (intent == "FlightStatusByAirport") 
     {
             let airports = app1.getArgument('Airports');
-    let hour = app1.getArgument('number');
+    let hour = app1.getArgument('time');
     //let carrier = app1.getArgument('Airlines');
     var flightdate = app1.getArgument('date');
     console.log(flightdate.toString().split('-'));
