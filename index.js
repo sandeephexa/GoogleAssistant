@@ -88,11 +88,10 @@ function callApi(req, res) {
                                 var countryd = destination.countryName;
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                            
-                                let scheduledd=fligarriv.flightStatuses[0].operationalTimes.scheduledGateArrival.dateLocal.split('T')[1];
-                                let scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal.split('T')[1];
-                                let estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal.split('T')[1];
-                                let estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal.split('T')[1];
-                                 console.log(flightstatuses+"=>"+countryd);
+                                var scheduledd=fligarriv.flightStatuses[0].operationalTimes.scheduledGateArrival.dateLocal;
+                                var scheduleda=fligarriv.flightStatuses[0].operationalTimes.scheduledGateDeparture.dateLocal;
+                                var estimatedd=fligarriv.flightStatuses[0].operationalTimes.estimatedGateDeparture.dateLocal;
+                                var estimateda=fligarriv.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal;
                                 app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}. Estimated Departure ${estimatedd} , Arrival ${estimateda}. Schedule Departure ${scheduledd} , Arrival ${scheduleda}`);
 
 
