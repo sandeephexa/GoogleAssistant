@@ -131,6 +131,7 @@ function callApi(req, res) {
                     }
                     function storeData(depS,arrS,depTime,arrTime,actStatus)
                     {
+                        console.log("next flight");
                         var dS = '';
                         dS = dS.concat(depS);
                         var aS = '';
@@ -141,10 +142,12 @@ function callApi(req, res) {
                         aT = aT.concat(arrTime);
                         var actStat = '';
                         actStat = actStat.concat(actStatus);
-                        console.log("Final output: status "+actStat+""+"arrival airport"+aS);
+                        //console.log("Final output: status "+actStat+""+"arrival airport"+aS);
+                        app1.ask(`  Flight Status is ${actStat}, \n departing  From ${dS}, \n To ${aS}, \n Departs at ${dT}, \n Arrives at ${aT} .`);
+
 
                     }
-                    app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                   // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                     }
                 }
             
@@ -160,5 +163,5 @@ apps.post("/", function (req, res) {
     callApi(req, res);
 });
 apps.listen(process.env.PORT || 3000, function () {
- 
+
 }); 
