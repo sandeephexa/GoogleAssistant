@@ -118,7 +118,7 @@ function callApi(req, res) {
                                         return  statusCodes[myStatus];
                                 
                                 }
-                                var listing = list(app1);
+                               // var listing = list(app1);
                                  // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
                                   //app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                   console.log("status "+actualStatus+" "+"departing from"+dep+"arrival airport"+arr+" "+"departure time"+departure+" "+"arrival time"+arrival);
