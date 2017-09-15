@@ -114,7 +114,7 @@ function callApi(req, res) {
                                 
                                 }
                                  // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                  app1.ask(` flight Status is ${actualStatus}, /n departing  From ${dep}, /n To ${arr}, /n Departs at ${departure}, /n Arrives at ${arrival} .`);
+                                  app1.ask(` flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                
                   
 
