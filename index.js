@@ -142,18 +142,20 @@ function callApi(req, res) {
                             // Build a list
                             app1.buildList('Flight Status')
                             // Add the first item to the list
-                            .addItems(app1.buildOptionItem('option2')
-                            .setTitle(`Flight status`)
-                            .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                            .addItems(app1.buildOptionItem('option1')
+                            .setTitle(`Flight status1`)
+                            .setDescription(` Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ${departure}`)
                             .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365', 'Departure',50,50)
                             )
                             // Add the second item to the list
-                            .addItems(app1.buildOptionItem('option1')
+                            .addItems(app1.buildOptionItem('option2')
                             .setTitle(`Flight status2`)
                             .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
                             .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Recipe')
-                            ).addItems(app1.buildOptionItem('option3').setTitle(`Flight status3`)
+                            ).addItems(app1.buildOptionItem('option3')
+                            .setTitle(`Flight status3`)
                             .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                            .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Cooking')
                             )
                         );
 
