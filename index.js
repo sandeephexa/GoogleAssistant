@@ -80,8 +80,16 @@ function callApi(req, res) {
                         console.log("Flight statuses only",dictionary);
                          console.log("i value increases by",i);
                          var finalResult='';
+                         var dep = '';
+                         var arr='';
+                         var departure='';
+                         var arrival='';
+                         var numOfFlights='';
+                           var flightstatuses='';
+                           var actualStatus='';
                         for(item in dictionary)
                         {
+
                             console.log("this is from dictionary",dictionary[item].arrivalAirportFsCode);
                             console.log("this is from dictionary",dictionary[item].operationalTimes.publishedDeparture.dateLocal);
                             console.log("this is from dictionary",dictionary[item].operationalTimes.publishedArrival.dateLocal);
@@ -91,15 +99,15 @@ function callApi(req, res) {
   
                                // var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
                                 //var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
-                              var dep = dictionary[item].departureAirportFsCode;
-                              var arr = dictionary[item].arrivalAirportFsCode;
+                               dep = dictionary[item].departureAirportFsCode;
+                               arr = dictionary[item].arrivalAirportFsCode;
 
                                // var flightstatuses = fligarriv.flightStatuses[i].status;
-                               var flightstatuses =dictionary[item].status;
+                                flightstatuses =dictionary[item].status;
                                 
-                                var departure=dictionary[item].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival=dictionary[item].operationalTimes.publishedArrival.dateLocal;
-                                var numOfFlights = fligarriv.flightStatuses.length;
+                                 departure=dictionary[item].operationalTimes.publishedDeparture.dateLocal;
+                                 arrival=dictionary[item].operationalTimes.publishedArrival.dateLocal;
+                                 numOfFlights = fligarriv.flightStatuses.length;
                                 //actual status
                                 var statusCodes = {  
                                 "A":"Active",
@@ -113,7 +121,7 @@ function callApi(req, res) {
                                 "U":"Unknown"
                                 };
                                 var result = "";
-                                var actualStatus = getStatus(flightstatuses);
+                                 actualStatus = getStatus(flightstatuses);
 
 
                                 function getStatus(s)
@@ -125,9 +133,9 @@ function callApi(req, res) {
                                 }
                                  
                                  // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
-                                 var res = 'Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival}'
-                              console.log("Response like this ",res);
-                                 finalResult=finalResult.concat(res);
+                                 //var res = 'Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival}'
+                            //   console.log("Response like this ",res);
+                            //      finalResult=finalResult.concat(res);
                                 
 
 
@@ -135,7 +143,7 @@ function callApi(req, res) {
                         }
                         
                     }
-                // app1.ask('${finalResult}');
+                app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                    
                     }
                 }
