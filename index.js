@@ -74,6 +74,8 @@ function callApi(req, res) {
                
                     if (fligarriv.appendix.hasOwnProperty('airlines')) {
                         // looping through 
+                        var dictionary = fligarriv.flightStatuses;
+                        console.log("Flight statuses only",dictionary);
                         for(var i=0;i<10 ; i++)
                         {
                             console.log("i value increased by",i);
@@ -136,5 +138,5 @@ apps.post("/", function (req, res) {
     callApi(req, res);
 });
 apps.listen(process.env.PORT || 3000, function () {
- 
+
 }); 
