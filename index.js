@@ -126,8 +126,8 @@ function callApi(req, res) {
                                  
                                  // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                  var res = "flight Status is" +actualStatus +" departing  From" +dep +"\n To "+arr;
-                              console.log(res);
-                                 finalResult=finalResult+" \n "+res;
+                              console.log("Response like this ",res);
+                                 finalResult=finalResult.concat(res);
                                 
 
 
@@ -135,7 +135,7 @@ function callApi(req, res) {
                         }
                         
                     }
-                 app1.ask('${finalResult}');
+                // app1.ask('${finalResult}');
                    
                     }
                 }
