@@ -75,18 +75,19 @@ function callApi(req, res) {
                     if (fligarriv.appendix.hasOwnProperty('airlines')) {
                         // looping through 
                         var dictionary = fligarriv.flightStatuses;
-                        var i = 0;
+                       
                        
                         console.log("Flight statuses only",dictionary);
                          console.log("i value increases by",i);
+                         var finalResult='';
                         for(item in dictionary)
                         {
                             console.log("this is from dictionary",dictionary[item].arrivalAirportFsCode);
                             console.log("this is from dictionary",dictionary[item].operationalTimes.publishedDeparture.dateLocal);
                             console.log("this is from dictionary",dictionary[item].operationalTimes.publishedArrival.dateLocal);
-                        if (fligarriv.appendix.airlines[i].active) {
+                             if (fligarriv.appendix.airlines[i].active) {
 
-                            if (fligarriv.appendix.hasOwnProperty('airports')) {
+                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
                                // var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
                                 //var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
@@ -122,16 +123,20 @@ function callApi(req, res) {
                                         return  statusCodes[myStatus];
                                 
                                 }
-                                 // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                  app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
-                               
+                                 
+                                 // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                                 var res = (`flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                                 var temp = res;
+                                 finalResult=finalResult+" \n "+temp;
                   
 
 
                             }
                         }
-                        i++;
-                        }
+                        
+                    }
+                    app.ask('${finalResult}');
+                   
                     }
                 }
             
