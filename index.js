@@ -86,10 +86,13 @@ function callApi(req, res) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
-                                var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
-                                var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
-                              
-                                var flightstatuses = fligarriv.flightStatuses[i].status;
+                               // var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
+                                //var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
+                              var dep = dictionary[item].departureAirportFsCode;
+                              var arr = dictionary[item].arrivalAirportFsCode;
+
+                               // var flightstatuses = fligarriv.flightStatuses[i].status;
+                               var flightstatuses =dictionary[item].status;
                                 
                                 var departure=fligarriv.flightStatuses[i].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[i].operationalTimes.publishedArrival.dateLocal;
