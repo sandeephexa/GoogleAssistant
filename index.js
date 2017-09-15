@@ -72,19 +72,21 @@ function callApi(req, res) {
             }
              else   if (fligarriv.hasOwnProperty('appendix')) {
                
-                   // if (fligarriv.appendix.hasOwnProperty('airlines')) {
-     
-                       // if (fligarriv.appendix.airlines[0].active) {
+                    if (fligarriv.appendix.hasOwnProperty('airlines')) {
+                        // looping through 
+                        for(var i=0;i<10 ; i++)
+                        {
+                        if (fligarriv.appendix.airlines[i].active) {
 
-                            if (fligarriv.appendix.hasOwnProperty('flightStatuses')) {
+                            if (fligarriv.appendix.hasOwnProperty('airports')) {
   
-                                var dep = fligarriv.flightStatuses[0].departureAirportFsCode;
-                                var arr = fligarriv.flightStatuses[0].arrivalAirportFsCode;
+                                var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
+                                var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
                               
                                 var flightstatuses = fligarriv.flightStatuses[0].status;
                                 
-                                var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
+                                var departure=fligarriv.flightStatuses[i].operationalTimes.publishedDeparture.dateLocal;
+                                var arrival=fligarriv.flightStatuses[i].operationalTimes.publishedArrival.dateLocal;
                                 var numOfFlights = fligarriv.flightStatuses.length;
                                 //actual status
                                 var statusCodes = {  
@@ -116,8 +118,9 @@ function callApi(req, res) {
 
 
                             }
-                       // }
-                   // }
+                        }
+                        }
+                    }
                 }
             
             }
