@@ -135,7 +135,7 @@ function callApi(req, res) {
                         }
                         
                     }
-                    app.ask('${finalResult}');
+                    app1.ask('${finalResult}');
                    
                     }
                 }
