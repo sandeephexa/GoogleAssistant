@@ -89,7 +89,7 @@ function callApi(req, res) {
                                 
                                 var departure=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
-                                
+                                var numOfFlights = fligarriv.flightStatuses.length;
                                 //actual status
                                 var statusCodes = {  
                                 "A":"Active",
@@ -114,7 +114,7 @@ function callApi(req, res) {
                                 
                                 }
                                  // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                  app1.ask(` flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                                  app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                
                   
 
