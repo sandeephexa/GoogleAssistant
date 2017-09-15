@@ -81,7 +81,9 @@ function callApi(req, res) {
                          console.log("i value increases by",i);
                         for(item in dictionary)
                         {
-                            console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
+                            console.log("this is from dictionary",dictionary[item].arrivalAirportFsCode);
+                            console.log("this is from dictionary",dictionary[item].operationalTimes.publishedDeparture.dateLocal);
+                            console.log("this is from dictionary",dictionary[item].operationalTimes.publishedArrival.dateLocal);
                         if (fligarriv.appendix.airlines[i].active) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
@@ -94,8 +96,8 @@ function callApi(req, res) {
                                // var flightstatuses = fligarriv.flightStatuses[i].status;
                                var flightstatuses =dictionary[item].status;
                                 
-                                var departure=fligarriv.flightStatuses[i].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival=fligarriv.flightStatuses[i].operationalTimes.publishedArrival.dateLocal;
+                                var departure=dictionary[item].operationalTimes.publishedDeparture.dateLocal;
+                                var arrival=dictionary[item].operationalTimes.publishedArrival.dateLocal;
                                 var numOfFlights = fligarriv.flightStatuses.length;
                                 //actual status
                                 var statusCodes = {  
