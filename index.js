@@ -81,7 +81,7 @@ function callApi(req, res) {
                          console.log("i value increases by",i);
                         for(item in dictionary)
                         {
-                            console.log("this is from dictionary",dictionary.departureAirportFsCode);
+                            console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
                         if (fligarriv.appendix.airlines[i].active) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
