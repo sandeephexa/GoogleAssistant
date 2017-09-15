@@ -87,8 +87,8 @@ function callApi(req, res) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
-                                var depStation = fligarriv.flightStatuses[i].departureAirportFsCode;
-                                var arrStaion = fligarriv.flightStatuses[i].arrivalAirportFsCode;
+                                var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
+                                var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
                               
                                 var flightstatuses = fligarriv.flightStatuses[i].status;
                                 
@@ -118,10 +118,10 @@ function callApi(req, res) {
                                         return  statusCodes[myStatus];
                                 
                                 }
-                                var t = storeData(depStation,arrStaion,departure,arrival,actualStatus,numOfFlights);
                                  // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
                                   //app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
-                               
+                                  console.log("status "+actualStatus+" "+"departing from"+dep+"arrival airport"+arr+" "+"departure time"+departure+" "+"arrival time"+arrival);
+                               app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                   
 
 
@@ -129,27 +129,7 @@ function callApi(req, res) {
                         }
                         i++;
                     }
-                    function storeData(depS,arrS,depTime,arrTime,actStatus,numOfFlights)
-                    {
-                        console.log("next flight");
-                        var noF = '';
-                        noF = noF.concat(numOfFlights);
-                        var dS = '';
-                        departureStation = dS.concat(depS);
-                        var aS = '';
-                        arrivingStation = aS.concat(arrS);
-                        var dT='';
-                        departureTime = dT.concat(depTime);
-                        var aT = '';
-                        arrivalTime = aT.concat(arrTime);
-                        var actStat = '';
-                        actStat = actStat.concat(actStatus);
-                        console.log("status "+actStat+" "+"departing from"+departureStation+"arrival airport"+arrivingStation+" "+"departure time"+departureTime+" "+"arrival time"+arrivalTime);
-                        app1.ask(`  Flight Status  ${actStat}, \n departing  From ${departureStation}, \n To ${arrivingStation}, \n Departs at ${departureTime}, \n Arrives at ${arrivalTime} .`);
-
-
-                    }
-                   // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                    
                     }
                 }
             
