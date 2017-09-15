@@ -117,8 +117,21 @@ function callApi(req, res) {
                                         return  statusCodes[myStatus];
                                 
                                 }
-                                 // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
-                                  app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                                console.log('Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .');
+                                console.log("next flight ");
+                                 
+                                 // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                                 // Basic card
+                                app1.ask(app1.buildRichResponse()
+                                    
+
+                                    .addSimpleResponse('Flight status!')
+                                    .addBasicCard(app1.buildBasicCard(`* ${actualStatus}  * \n\n\n* * Departure: ** \n\n${dep}\n\n\n${departure.substring(0, departure.length-4)}
+                                \n\n\n ** Arrival: ** \n\n${scheduleda.substring(0, scheduleda.length-4)}\n\nEst:\n${estimateda.substring(0, estimateda.length-4)}`)
+                                    .setTitle('Flight Status')
+                                    .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
+                                    )
+                                );
                                
                   
 
