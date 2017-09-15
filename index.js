@@ -81,7 +81,7 @@ function callApi(req, res) {
                          console.log("i value increased by",i);
                         //if (fligarriv.appendix.airlines[i].active) {
 
-                           // if (fligarriv.appendix.hasOwnProperty('airports')) {
+                            if (fligarriv.appendix.hasOwnProperty('airports')) {
   
                                 var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
                                 var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
@@ -120,7 +120,7 @@ function callApi(req, res) {
                   
 
 
-                            //}
+                            }
                         //}
                         }
                     }
