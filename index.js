@@ -76,12 +76,12 @@ function callApi(req, res) {
                         // looping through 
                         var dictionary = fligarriv.flightStatuses;
                         console.log("Flight statuses only",dictionary);
-                        for(var i=0;i<10 ; i++)
+                        for(item in dictionary)
                         {
-                            console.log("i value increased by",i);
-                        if (fligarriv.appendix.airlines[i].active) {
+                         console.log("i value increased by",i);
+                        //if (fligarriv.appendix.airlines[i].active) {
 
-                            if (fligarriv.appendix.hasOwnProperty('airports')) {
+                           // if (fligarriv.appendix.hasOwnProperty('airports')) {
   
                                 var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
                                 var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
@@ -120,8 +120,8 @@ function callApi(req, res) {
                   
 
 
-                            }
-                        }
+                            //}
+                        //}
                         }
                     }
                 }
