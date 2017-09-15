@@ -113,7 +113,7 @@ function callApi(req, res) {
 
                                 function getStatus(s)
                                 {
-                                var myStatus = s ;  // convert num to string
+                                var myStatus = s ;  
                                 if(statusCodes[myStatus])
                                         return  statusCodes[myStatus];
                                 
@@ -123,8 +123,40 @@ function callApi(req, res) {
                                   console.log("status "+actualStatus+" "+"departing from"+dep+"arrival airport"+arr+" "+"departure time"+departure+" "+"arrival time"+arrival);
                                app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                   
-
-
+                               // working with list
+                               function list (app1) {
+                                    app1.askWithList(app1.buildRichResponse()
+                                        .addSimpleResponse('Alright')
+                                        .addSuggestions(
+                                        ['Basic Card', 'List', 'Carousel', 'Suggestions']),
+                                        // Build a list
+                                        app1.buildList('Things to learn about')
+                                        // Add the first item to the list
+                                        .addItems(app1.buildOptionItem('MATH_AND_PRIME',
+                                        ['math', 'math and prime', 'prime numbers', 'prime'])
+                                        .setTitle('Math & prime numbers')
+                                        .setDescription('42 is an abundant number because the sum of its ' +
+                                            'proper divisors 54 is greater…')
+                                        .setImage('http://example.com/math_and_prime.jpg', 'Math & prime numbers'))
+                                        // Add the second item to the list
+                                        .addItems(app.buildOptionItem('EGYPT',
+                                        ['religion', 'egpyt', 'ancient egyptian'])
+                                        .setTitle('Ancient Egyptian religion')
+                                        .setDescription('42 gods who ruled on the fate of the dead in the ' +
+                                            'afterworld. Throughout the under…')
+                                        .setImage('http://example.com/egypt', 'Egypt')
+                                        )
+                                        // Add third item to the list
+                                        .addItems(app1.buildOptionItem('RECIPES',
+                                        ['recipes', 'recipe', '42 recipes'])
+                                        .setTitle('42 recipes with 42 ingredients')
+                                        .setDescription('Here\'s a beautifully simple recipe that\'s full ' +
+                                            'of flavor! All you need is some ginger and…')
+                                        .setImage('http://example.com/recipe', 'Recipe')
+                                        )
+                                    );
+                                    }
+                               // end of list
                             }
                         }
                         i++;
