@@ -76,6 +76,7 @@ function callApi(req, res) {
                         // looping through 
                         for(var i=0;i<10 ; i++)
                         {
+                            console.log("i value increased by",i);
                         if (fligarriv.appendix.airlines[i].active) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
