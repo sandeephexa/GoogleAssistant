@@ -82,12 +82,13 @@ function callApi(req, res) {
                         for(item in dictionary)
                         {
                             console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
+                            
                         if (fligarriv.appendix.airlines[i].active) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
-                                var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
-                                var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
+                                var depStation = fligarriv.flightStatuses[i].departureAirportFsCode;
+                                var arrStaion = fligarriv.flightStatuses[i].arrivalAirportFsCode;
                               
                                 var flightstatuses = fligarriv.flightStatuses[i].status;
                                 
@@ -117,6 +118,7 @@ function callApi(req, res) {
                                         return  statusCodes[myStatus];
                                 
                                 }
+                                var t = storeData(depStation,arrStaion,departure,arrival,actualStatus);
                                  // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
                                   //app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                
@@ -126,6 +128,21 @@ function callApi(req, res) {
                             }
                         }
                         i++;
+                    }
+                    function storeData(depS,arrS,depTime,arrTime,actStatus)
+                    {
+                        var dS = '';
+                        dS = dS.concat(depS);
+                        var aS = '';
+                        aS = aS.concat(arrS);
+                        var dT='';
+                        dT = dT.concat(depTime);
+                        var aT = '';
+                        aT = aT.concat(arrTime);
+                        var actStat = '';
+                        actStat = actStat.concat(actStatus);
+                        console.log("Final output: status "+actStat+""+"arrival airport"+aS);
+
                     }
                     app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                     }
