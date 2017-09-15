@@ -75,7 +75,7 @@ function callApi(req, res) {
                     if (fligarriv.appendix.hasOwnProperty('airlines')) {
                         // looping through 
                         var dictionary = fligarriv.flightStatuses;
-                        var i = 0;
+                        
                        
                         console.log("Flight statuses only",dictionary);
                          console.log("i value increases by",i);
@@ -124,20 +124,43 @@ function callApi(req, res) {
                                   console.log("status "+actualStatus+" "+"departing from"+dep+"arrival airport"+arr+" "+"departure time"+departure+" "+"arrival time"+arrival);
                               // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                
-                               // working with list
-                                    app1.ask(app1.buildRichResponse()
-                                    // Create a basic card and add it to the rich response
+                               // working with Basic card
+                                    // app1.ask(app1.buildRichResponse()
+                                    // // Create a basic card and add it to the rich response
 
-                                    .addSimpleResponse('Flight status!')
-                                    .addBasicCard(app1.buildBasicCard(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
-                                    .setTitle('Flight Status')
-                                    .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
-                                    )
-                                );
-                               // end of list
+                                    // .addSimpleResponse('Flight status!')
+                                    // .addBasicCard(app1.buildBasicCard(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                                    // .setTitle('Flight Status')
+                                    // .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
+                                    // )
+                               // );
+                               // end of Basic card
+                    //Working with List
+
+                        app1.askWithList(app1.buildRichResponse()
+                            .addSimpleResponse(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`),
+                            // Build a list
+                            app1.buildList('Flight Status')
+                            // Add the first item to the list
+                            .addItems(app1.buildOptionItem('option2')
+                            .setTitle(`${datedep}`)
+                            .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                            .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365', 'Departure',50,50)
+                            )
+                            // Add the second item to the list
+                            .addItems(app1.buildOptionItem('option1')
+                            .setTitle(`Arrival`)
+                            .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                            .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Recipe')
+                            ).addItems(app1.buildOptionItem('option3').setTitle(`${sourcecarrier} => ${destcarrier}`)
+                            .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                            )
+                        );
+
+
                             }
                         }
-                        i++;
+                        
                     }
                     
                     }
