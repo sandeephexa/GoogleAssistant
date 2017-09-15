@@ -121,43 +121,46 @@ function callApi(req, res) {
                                // var listing = list(app1);
                                  // app1.ask(`Flight is ${flightstatuses} from ${airports}${countrys} to ${airportd}${countryd}.`);
                                   //app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
-                                  console.log("status "+actualStatus+" "+"departing from"+dep+"arrival airport"+arr+" "+"departure time"+departure+" "+"arrival time"+arrival);
+                              console.log("status "+actualStatus+" "+"departing from"+dep+"arrival airport"+arr+" "+"departure time"+departure+" "+"arrival time"+arrival);
                               // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                
                                // working with Basic card
-                                    // app1.ask(app1.buildRichResponse()
-                                    // // Create a basic card and add it to the rich response
+                                    app1.ask(app1.buildRichResponse()
+                                    // Create a basic card and add it to the rich response
 
-                                    // .addSimpleResponse('Flight status!')
-                                    // .addBasicCard(app1.buildBasicCard(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
-                                    // .setTitle('Flight Status')
-                                    // .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
-                                    // )
-                               // );
+                                    .addSimpleResponse('Flight status!')
+                                    .addBasicCard(app1.buildBasicCard(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                                    .setTitle('Flight Status')
+                                    .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
+                                    )
+                               );
                                // end of Basic card
                     //Working with List
-
-                        app1.askWithList(app1.buildRichResponse()
-                            .addSimpleResponse(`Test Response`),
-                            // Build a list
-                            app1.buildList('Flight Status')
-                            // Add the first item to the list
-                            .addItems(app1.buildOptionItem('option1')
-                            .setTitle(`Flight status1`)
-                            .setDescription(` Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ${departure}`)
-                            .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365', 'Departure',50,50)
-                            )
-                            // Add the second item to the list
-                            .addItems(app1.buildOptionItem('option2')
-                            .setTitle(`Flight status2`)
-                            .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
-                            .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Recipe')
-                            ).addItems(app1.buildOptionItem('option3')
-                            .setTitle(`Flight status3`)
-                            .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
-                            .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Cooking')
-                            )
-                        );
+                    //  console.log("inside list items function");
+                    //     app1.askWithList(app1.buildRichResponse()
+                        
+                    //         .addSimpleResponse(`Test Response`),
+                    //         // Build a list
+                    //         app1.buildList('Flight Status')
+                    //         // Add the first item to the list
+                           
+                    //         .addItems(app1.buildOptionItem('option1')
+                    //         .setTitle(`Flight status1`)
+                    //         .setDescription(` Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ${departure}`)
+                    //         .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365', 'Departure',50,50)
+                    //         )
+                    //         // Add the second item to the list
+                    //         .addItems(app1.buildOptionItem('option2')
+                    //         .setTitle(`Flight status2`)
+                    //         .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                    //         .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Recipe')
+                    //         ).addItems(app1.buildOptionItem('option3')
+                    //         .setTitle(`Flight status3`)
+                    //         .setDescription(`* Departs - ${dep} => Arrives ${arr} * \n\n\n* * Departure: ** \n\n${departure}`)
+                    //         .setImage('http://grfx.cstv.com/story-nav/icon-plus3.png', 'Cooking')
+                    //         )
+                    //     );
+            //end of list
 
 
                             }
