@@ -75,18 +75,21 @@ function callApi(req, res) {
                     if (fligarriv.appendix.hasOwnProperty('airlines')) {
                         // looping through 
                         var dictionary = fligarriv.flightStatuses;
+                        var i = 0;
+                       
                         console.log("Flight statuses only",dictionary);
+                         console.log("i value increases by",i);
                         for(item in dictionary)
                         {
-                         console.log("i value increased by",i);
-                        //if (fligarriv.appendix.airlines[i].active) {
+                        
+                        if (fligarriv.appendix.airlines[i].active) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
   
                                 var dep = fligarriv.flightStatuses[i].departureAirportFsCode;
                                 var arr = fligarriv.flightStatuses[i].arrivalAirportFsCode;
                               
-                                var flightstatuses = fligarriv.flightStatuses[0].status;
+                                var flightstatuses = fligarriv.flightStatuses[i].status;
                                 
                                 var departure=fligarriv.flightStatuses[i].operationalTimes.publishedDeparture.dateLocal;
                                 var arrival=fligarriv.flightStatuses[i].operationalTimes.publishedArrival.dateLocal;
@@ -121,7 +124,8 @@ function callApi(req, res) {
 
 
                             }
-                        //}
+                        }
+                        i++;
                         }
                     }
                 }
