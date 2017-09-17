@@ -126,7 +126,7 @@ function callApi(req, res) {
     // Create a basic card and add it to the rich response
 
     .addSimpleResponse('Math and prime numbers it is!')
-    .addBasicCard(app1.buildBasicCard(`* ${dep} => ${arr} * \n\n\n* * Departure: ** \n\n${departure}\n\n${arrival.substring(0, arrival.length-4)}`)
+    .addBasicCard(app1.buildBasicCard(`* ${dep} => ${arr} \n Departure: *\n${departure}\n${arrival}`)
       .setTitle('Flight Status')
       .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
     )
