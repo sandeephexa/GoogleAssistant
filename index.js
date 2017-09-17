@@ -122,15 +122,46 @@ function callApi(req, res) {
                                  
                                  // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
                                  // Basic card
-                              app1.ask(app1.buildRichResponse()
-    // Create a basic card and add it to the rich response
+//                               app1.ask(app1.buildRichResponse()
+//     // Create a basic card and add it to the rich response
 
-    .addSimpleResponse('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
-    .addBasicCard(app1.buildBasicCard(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
-      .setTitle('Flight Status')
-      .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
-    )
-  );
+//     .addSimpleResponse('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
+//     .addBasicCard(app1.buildBasicCard(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
+//       .setTitle('Flight Status')
+//       .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
+//     )
+//   );
+app1.askWithList(app1.buildRichResponse()
+.addSimpleResponse('Flights')
+.addSuggestions(
+  ['Basic Card', 'List', 'Carousel', 'Suggestions']),
+// Build a list
+app1.buildList('Statuses')
+// Add the first item to the list
+.addItems(app1.buildOptionItem('MATH_AND_PRIME',
+  ['math', 'math and prime', 'prime numbers', 'prime'])
+  .setTitle('Math & prime numbers')
+  .setDescription('42 is an abundant number because the sum of its ' +
+    'proper divisors 54 is greater…')
+  .setImage('http://example.com/math_and_prime.jpg', 'Math & prime numbers'))
+// Add the second item to the list
+.addItems(app1.buildOptionItem('EGYPT',
+  ['religion', 'egpyt', 'ancient egyptian'])
+  .setTitle('Ancient Egyptian religion')
+  .setDescription('42 gods who ruled on the fate of the dead in the ' +
+    'afterworld. Throughout the under…')
+  .setImage('http://example.com/egypt', 'Egypt')
+)
+// Add third item to the list
+.addItems(app1.buildOptionItem('RECIPES',
+  ['recipes', 'recipe', '42 recipes'])
+  .setTitle('42 recipes with 42 ingredients')
+  .setDescription('Here\'s a beautifully simple recipe that\'s full ' +
+    'of flavor! All you need is some ginger and…')
+  .setImage('http://example.com/recipe', 'Recipe')
+)
+);
+
                                
                   
 
