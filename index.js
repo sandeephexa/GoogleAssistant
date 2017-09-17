@@ -138,26 +138,23 @@ app1.askWithList(app1.buildRichResponse()
 // Build a list
 app1.buildList('Statuses')
 // Add the first item to the list
-.addItems(app1.buildOptionItem('MATH_AND_PRIME',
-  ['math', 'math and prime', 'prime numbers', 'prime'])
-  .setTitle('Math & prime numbers')
-  .setDescription('42 is an abundant number because the sum of its ' +
-    'proper divisors 54 is greater…')
-  .setImage('http://example.com/math_and_prime.jpg', 'Math & prime numbers'))
+.addItems(app1.buildOptionItem('flight 1',
+  [' ', '  ', ' ', ''])
+  .setTitle('flight 1')
+  .setDescription('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
+  .setImage(''))
 // Add the second item to the list
-.addItems(app1.buildOptionItem('EGYPT',
-  ['religion', 'egpyt', 'ancient egyptian'])
-  .setTitle('Ancient Egyptian religion')
-  .setDescription('42 gods who ruled on the fate of the dead in the ' +
-    'afterworld. Throughout the under…')
+.addItems(app1.buildOptionItem('flight2',
+  ['', '', ' '])
+  .setTitle('flight 2')
+  .setDescription('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
   .setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
-.addItems(app1.buildOptionItem('RECIPES',
-  ['recipes', 'recipe', '42 recipes'])
-  .setTitle('42 recipes with 42 ingredients')
-  .setDescription('Here\'s a beautifully simple recipe that\'s full ' +
-    'of flavor! All you need is some ginger and…')
+.addItems(app1.buildOptionItem('flight 3',
+  ['', '', ''])
+  .setTitle('flight 3')
+  .setDescription('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
   .setImage('http://example.com/recipe', 'Recipe')
 )
 );
