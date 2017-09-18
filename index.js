@@ -79,36 +79,21 @@ function callApi(req, res) {
                        
                         console.log("Flight statuses only",dictionary);
                          console.log("i value increases by",i);
-                        
+                        //for(item in dictionary)
+                       // {
                             console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
                         if (fligarriv.appendix.airlines[i].active) {
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
-                                //flight1
-                                var dep1 = fligarriv.flightStatuses[0].departureAirportFsCode;
-                                var arr1 = fligarriv.flightStatuses[0].arrivalAirportFsCode;
+  
+                                var dep = dictionary[0].departureAirportFsCode;
+                                var arr = dictionary[0].arrivalAirportFsCode;
                               
-                                var flightstatuses1 = fligarriv.flightStatuses[0].status;
+                                var flightstatuses = dictionary[0].status;
                                 
-                                var departure1=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival1=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
+                                var departure=dictionary[0].operationalTimes.publishedDeparture.dateLocal;
+                                var arrival=dictionary[0].operationalTimes.publishedArrival.dateLocal;
                                 var numOfFlights = fligarriv.flightStatuses.length;
-                                //flight 2
-                                 var dep2 = fligarriv.flightStatuses[1].departureAirportFsCode;
-                                var arr2 = fligarriv.flightStatuses[1].arrivalAirportFsCode;
-                              
-                                var flightstatuses2 = fligarriv.flightStatuses[1].status;
-                                
-                                var departure2=fligarriv.flightStatuses[1].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival2=fligarriv.flightStatuses[1].operationalTimes.publishedArrival.dateLocal;
-                                //flight 3
-                                 var dep3 = fligarriv.flightStatuses[2].departureAirportFsCode;
-                                var arr3 = fligarriv.flightStatuses[2].arrivalAirportFsCode;
-                              
-                                var flightstatuses3 = fligarriv.flightStatuses[2].status;
-                                
-                                var departure3=fligarriv.flightStatuses[2].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival3=fligarriv.flightStatuses[2].operationalTimes.publishedArrival.dateLocal;
                                 //actual status
                                 var statusCodes = {  
                                 "A":"Active",
@@ -122,9 +107,8 @@ function callApi(req, res) {
                                 "U":"Unknown"
                                 };
                                 var result = "";
-                                var actualStatus1 = getStatus(flightstatuses1);
-                                 var actualStatus2 = getStatus(flightstatuses2);
-                                 var actualStatus3 = getStatus(flightstatuses3);
+                                var actualStatus = getStatus(flightstatuses);
+
 
                                 function getStatus(s)
                                 {
@@ -157,20 +141,20 @@ app1.buildList('Statuses')
 .addItems(app1.buildOptionItem('flight 1',
   [' ', '  ', ' ', ''])
   .setTitle('flight 1')
-  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
+  .setDescription(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
   .setImage(''))
 // Add the second item to the list
 .addItems(app1.buildOptionItem('flight2',
   ['', '', ' '])
   .setTitle('flight 2')
-  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
+  .setDescription(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
   .setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
 .addItems(app1.buildOptionItem('flight 3',
   ['', '', ''])
   .setTitle('flight 3')
-  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
+  .setDescription(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
   .setImage('http://example.com/recipe', 'Recipe')
 )
 );
@@ -181,8 +165,8 @@ app1.buildList('Statuses')
 
                             }
                         }
-                        //i++;
-                        
+                        i++;
+                       // }
                     }
                 }
             
