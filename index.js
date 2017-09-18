@@ -136,13 +136,15 @@ function callApi(req, res) {
     //.addSuggestions(['Yes', 'No'])
     ,
       app1.buildList('Flight Status')
-    // Add first item to the list
+    // Add the first item to the list
     .addItems(app1.buildOptionItem('Flight 1')
       .setTitle(` ${dep1} to ${arr1} Status: ${actualStatus1}`)
       .setDescription(`D: ${departure1} A: ${arrival1}`)
-       .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+      .setImage('https://miamain.blob.core.windows.net/wp-uploads/wp-content/uploads/2015/09/icons-home-arrivals-departures.png', 'Departure')
+      // .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+       
       )
-    // Add second item to the list
+    // Add the second item to the list
     .addItems(app1.buildOptionItem('Flight 2')
       .setTitle(` ${dep2} to ${arr2} Status: ${actualStatus2}`)
       .setDescription(`D: ${departure2} A: ${arrival2}`)
