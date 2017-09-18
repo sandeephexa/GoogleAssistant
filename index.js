@@ -145,23 +145,25 @@ function callApi(req, res) {
             
          app1.askWithList(app1.buildRichResponse()
     .addSimpleResponse(`Status `)
-    .addSuggestions(['Yes', 'No']),
+    //.addSuggestions(['Yes', 'No'])
+    ,
       app1.buildList('Flight Status')
     // Add the first item to the list
     .addItems(app1.buildOptionItem('Flight from ${dep1} to ${arr1}')
       .setTitle(`Flight from ${dep1} to ${arr1}`)
-      .setDescription(`Status ${actualStatus1}\n\nDeparture ${departure1.substring(0, departure1.length-4)}\n\Arrival:${arrival1.substring(0, arrival1.length-4)}`)
-      // .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+      .setDescription(`Status: ${actualStatus1}\n\D ${departure1.substring(0, departure1.length-4)}\n\A:${arrival1.substring(0, arrival1.length-4)}`)
+       .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
       )
     // Add the second item to the list
     .addItems(app1.buildOptionItem('Flight from ${dep2} to ${arr2}')
       .setTitle(`Flight from ${dep2} to ${arr2}`)
-      .setDescription(`Status ${actualStatus2}\n\nDeparture ${departure2.substring(0, departure2.length-4)}\n\Arrival:${arrival2.substring(0, arrival2.length-4)}`)
-     // .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+      .setDescription(`Status: ${actualStatus2}\n\D ${departure2.substring(0, departure2.length-4)}\n\A:${arrival2.substring(0, arrival2.length-4)}`)
+      .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+      // add third item
     ).addItems(app1.buildOptionItem('Flight from ${dep3} to ${arr3}')
     .setTitle(`Flight from ${dep3} to ${arr3}`)
-      .setDescription(`Status ${actualStatus3}\n\nDeparture ${departure3.substring(0, departure3.length-4)}\n\Arrival:${arrival3.substring(0, arrival3.length-4)}`)
-     // .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+      .setDescription(`Status: ${actualStatus3}\n\nD ${departure3.substring(0, departure3.length-4)}\n\A:${arrival3.substring(0, arrival3.length-4)}`)
+      .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
     )
   ); 
       
