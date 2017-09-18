@@ -76,41 +76,40 @@ function callApi(req, res) {
                         // looping through 
                         var dictionary = fligarriv.flightStatuses;
                         var i = 0;
-                       
+                        var dep1,arr1,flightstatuses1,departure1,arrival1,numOfFlights1,dep2,arr2,flightstatuses2,departure2,arrival2,dep3,arr3,flightstatuses3,departure3,arrival3,actualStatus1,actualStatus2,actualStatus3;
                         console.log("Flight statuses only",dictionary);
                          console.log("i value increases by",i);
-                        for(item in dictionary)
-                        {
-                            console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
-                        if (fligarriv.appendix.airlines[i].active) {
+        
+            
 
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
                                 // flight 1
-                                var dep1 = dictionary[0].departureAirportFsCode;
-                                var arr1 = dictionary[0].arrivalAirportFsCode;
+            
+                                dep1 = dictionary[0].departureAirportFsCode;
+                                arr1 = dictionary[0].arrivalAirportFsCode;
                               
-                                var flightstatuses1 = dictionary[0].status;
+                                flightstatuses1 = dictionary[0].status;
                                 
-                                var departure1=dictionary[0].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival1=dictionary[0].operationalTimes.publishedArrival.dateLocal;
-                                var numOfFlights1 = fligarriv.flightStatuses.length;
+                                departure1=dictionary[0].operationalTimes.publishedDeparture.dateLocal;
+                                arrival1=dictionary[0].operationalTimes.publishedArrival.dateLocal;
+                                numOfFlights1 = fligarriv.flightStatuses.length;
                                 // flight 2
-                                var dep2 = dictionary[1].departureAirportFsCode;
-                                var arr2 = dictionary[1].arrivalAirportFsCode;
+                                dep2 = dictionary[1].departureAirportFsCode;
+                                arr2 = dictionary[1].arrivalAirportFsCode;
                               
-                                var flightstatuses2 = dictionary[1].status;
+                                flightstatuses2 = dictionary[1].status;
                                 
-                                var departure2=dictionary[1].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival1=dictionary[1].operationalTimes.publishedArrival.dateLocal;
+                                departure2=dictionary[1].operationalTimes.publishedDeparture.dateLocal;
+                                arrival2=dictionary[1].operationalTimes.publishedArrival.dateLocal;
                                 
                                 // flight 3
-                                var dep3 = dictionary[2].departureAirportFsCode;
-                                var arr3 = dictionary[2].arrivalAirportFsCode;
+                                dep3 = dictionary[2].departureAirportFsCode;
+                                arr3 = dictionary[2].arrivalAirportFsCode;
                               
-                                var flightstatuses3 = dictionary[2].status;
+                                flightstatuses3 = dictionary[2].status;
                                 
-                                var departure3=dictionary[2].operationalTimes.publishedDeparture.dateLocal;
-                                var arrival3=dictionary[2].operationalTimes.publishedArrival.dateLocal;
+                                departure3=dictionary[2].operationalTimes.publishedDeparture.dateLocal;
+                                arrival3=dictionary[2].operationalTimes.publishedArrival.dateLocal;
                                
                                 //actual status
                                 var statusCodes = {  
@@ -125,9 +124,9 @@ function callApi(req, res) {
                                 "U":"Unknown"
                                 };
                                 var result = "";
-                                var actualStatus1 = getStatus(flightstatuses);
-                                var actualStatus2 = getStatus(flightstatuses);
-                                var actualStatus3 = getStatus(flightstatuses);
+                                actualStatus1 = getStatus(flightstatuses);
+                                actualStatus2 = getStatus(flightstatuses);
+                                actualStatus3 = getStatus(flightstatuses);
 
 
                                 function getStatus(s)
@@ -151,7 +150,17 @@ function callApi(req, res) {
 //       .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
 //     )
 //   );
-app1.askWithList(app1.buildRichResponse()
+
+
+                               
+                  
+
+
+                            }
+                
+            
+        
+  app1.askWithList(app1.buildRichResponse()
 .addSimpleResponse('Flights')
 .addSuggestions(
   ['Basic Card', 'List', 'Carousel', 'Suggestions']),
@@ -177,16 +186,7 @@ app1.buildList('Statuses')
   .setDescription(`Status ${actualStatus3} ${dep3} => ${arr3} \n Departure: \n${departure3}\n Arrival \n${arrival3}`)
   .setImage('http://example.com/recipe', 'Recipe')
 )
-);
-
-                               
-                  
-
-
-                            }
-                        }
-                        i++;
-                        }
+);                  
                     }
                 }
             
