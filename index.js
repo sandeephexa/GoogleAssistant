@@ -132,7 +132,8 @@ function callApi(req, res) {
  
  // list
   app1.askWithList(app1.buildRichResponse()
-    .addSimpleResponse(`Flight status`)
+    .addSimpleResponse(`Flight from ${dep1} to ${arr1} Status: ${actualStatus1} departure ${departure1} arrival ${arrival1}. 
+    next flight from ${dep2} to ${arr2} Status: ${actualStatus2} departure ${departure2} arrival ${arrival2}`)
     //.addSuggestions(['Yes', 'No'])
     ,
       app1.buildList('Flight Status')
