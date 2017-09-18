@@ -154,21 +154,21 @@ app1.buildList('Statuses')
 .addItems(app1.buildOptionItem('flight1',
   [' ', '  ', ' ', ''])
   .setTitle('flight1')
-  .setDescription(`Status1 ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}`)
+  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}`)
   //.setImage('')
   )
 // Add the second item to the list
 .addItems(app1.buildOptionItem('flight2',
   ['', '', ' '])
   .setTitle('flight2')
-  .setDescription(`Status2 ${actualStatus2} ${dep2} => ${arr2} \n\n Departure: \n\n${departure2}\n\n Arrival \n\n${arrival2}`)
+  .setDescription(`Status ${actualStatus2} ${dep2} => ${arr2} \n\n Departure: \n\n${departure2}\n\n Arrival \n\n${arrival2}`)
   //.setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
 .addItems(app1.buildOptionItem('flight3',
   ['', '', ''])
   .setTitle('flight3')
-  .setDescription(`Status3 ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}`)
+  .setDescription(`Status ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}`)
   //.setImage('http://example.com/recipe', 'Recipe')
 )
 );        
