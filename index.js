@@ -146,26 +146,24 @@ function callApi(req, res) {
         
   app1.askWithList(app1.buildRichResponse()
 .addSimpleResponse('Flights')
-//  
 ,
-// Build a list
-app1.buildList('Statuses')
+app1.buildList('Flights')
 // Add the first item to the list
-.addItems(app1.buildOptionItem('Flight from ${dep1} to ${arr1}')
-  .setTitle('Status : ${actualStatus1}')
-  .setDescription(`D ${departure1.substring(0, departure1.length-4)}\n\A:${arrival1.substring(0, arrival1.length-4)}`)
+.addItems(app1.buildOptionItem(`Flight from ${dep1} to ${arr1}`)
+      .setTitle(`Status : ${actualStatus1}`)
+      .setDescription(`D ${departure1.substring(0, departure1.length-4)}\n\A:${arrival1.substring(0, arrival1.length-4)}`)
   //.setImage('')
   )
 // Add the second item to the list
-.addItems(app1.buildOptionItem('Flight from ${dep2} to ${arr2}')
-  .setTitle('Status : ${actualStatus2}')
-  .setDescription(`D ${departure2.substring(0, departure2.length-4)}\n\A:${arrival2.substring(0, arrival2.length-4)}`)
+.addItems(app1.buildOptionItem(`Flight from ${dep2} to ${arr2}`)
+      .setTitle(`Status : ${actualStatus2}`)
+      .setDescription(`D ${departure2.substring(0, departure2.length-4)}\n\A:${arrival2.substring(0, arrival2.length-4)}`)
   //.setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
-.addItems(app1.buildOptionItem('Flight from ${dep3} to ${arr3}')
-  .setTitle('Status : ${actualStatus3}')
-  .setDescription(`D ${departure3.substring(0, departure3.length-4)}\n\A:${arrival3.substring(0, arrival3.length-4)}`)
+.addItems(app1.buildOptionItem(`Flight from ${dep3} to ${arr3}`)
+      .setTitle(`Status : ${actualStatus3}`)
+      .setDescription(`D ${departure3.substring(0, departure3.length-4)}\n\A:${arrival3.substring(0, arrival3.length-4)}`)
   //.setImage('http://example.com/egypt', 'Egypt')
 )
 );        
