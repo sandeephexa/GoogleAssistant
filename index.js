@@ -77,11 +77,6 @@ function callApi(req, res) {
                         var dictionary = fligarriv.flightStatuses;
                         var i = 0;
                         var dep1,arr1,flightstatuses1,departure1,arrival1,numOfFlights1,dep2,arr2,flightstatuses2,departure2,arrival2,dep3,arr3,flightstatuses3,departure3,arrival3,actualStatus1,actualStatus2,actualStatus3;
-                        console.log("Flight statuses only",dictionary);
-                         console.log("i value increases by",i);
-        
-            
-
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
                                 // flight 1
             
@@ -124,9 +119,9 @@ function callApi(req, res) {
                                 "U":"Unknown"
                                 };
                                 var result = "";
-                                actualStatus1 = getStatus(flightstatuses);
-                                actualStatus2 = getStatus(flightstatuses);
-                                actualStatus3 = getStatus(flightstatuses);
+                                actualStatus1 = getStatus(flightstatuses1);
+                                actualStatus2 = getStatus(flightstatuses2);
+                                actualStatus3 = getStatus(flightstatuses3);
 
 
                                 function getStatus(s)
@@ -138,22 +133,11 @@ function callApi(req, res) {
                                 }
                                 console.log('Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .');
                                 console.log("next flight ");
-                                 
-                                 // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
-                                 // Basic card
-//                               app1.ask(app1.buildRichResponse()
-//     // Create a basic card and add it to the rich response
-
-//     .addSimpleResponse('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
-//     .addBasicCard(app1.buildBasicCard(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
-//       .setTitle('Flight Status')
-//       .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
-//     )
-//   );
+                            
 
 
                                
-                  
+                  console.log(dep1+arr1+flightstatuses1+departure1+arrival1+numOfFlights1+dep2+arr2+flightstatuses2+departure2+arrival2+dep3+arr3+flightstatuses3+departure3+arrival3+actualStatus1+actualStatus2+actualStatus3);
 
 
                             }
@@ -170,20 +154,20 @@ app1.buildList('Statuses')
 .addItems(app1.buildOptionItem('flight 1',
   [' ', '  ', ' ', ''])
   .setTitle('flight 1')
-  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
+  .setDescription(`Status1 ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
   .setImage(''))
 // Add the second item to the list
 .addItems(app1.buildOptionItem('flight2',
   ['', '', ' '])
   .setTitle('flight 2')
-  .setDescription(`Status ${actualStatus2} ${dep2} => ${arr2} \n Departure: \n${departure2}\n Arrival \n${arrival2}`)
+  .setDescription(`Status2 ${actualStatus2} ${dep2} => ${arr2} \n Departure: \n${departure2}\n Arrival \n${arrival2}`)
   .setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
 .addItems(app1.buildOptionItem('flight 3',
   ['', '', ''])
   .setTitle('flight 3')
-  .setDescription(`Status ${actualStatus3} ${dep3} => ${arr3} \n Departure: \n${departure3}\n Arrival \n${arrival3}`)
+  .setDescription(`Status3 ${actualStatus3} ${dep3} => ${arr3} \n Departure: \n${departure3}\n Arrival \n${arrival3}`)
   .setImage('http://example.com/recipe', 'Recipe')
 )
 );                  
