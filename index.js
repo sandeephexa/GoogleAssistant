@@ -79,8 +79,8 @@ function callApi(req, res) {
                        
                         console.log("Flight statuses only",dictionary);
                          console.log("i value increases by",i);
-                        //for(item in dictionary)
-                       // {
+                        for(item in dictionary)
+                        {
                             console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
                         if (fligarriv.appendix.airlines[i].active) {
 
@@ -166,7 +166,7 @@ app1.buildList('Statuses')
                             }
                         }
                         i++;
-                       // }
+                        }
                     }
                 }
             
