@@ -141,20 +141,20 @@ app1.buildList('Statuses')
 .addItems(app1.buildOptionItem('flight 1',
   [' ', '  ', ' ', ''])
   .setTitle('flight 1')
-  .setDescription('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
+  .setDescription(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
   .setImage(''))
 // Add the second item to the list
 .addItems(app1.buildOptionItem('flight2',
   ['', '', ' '])
   .setTitle('flight 2')
-  .setDescription('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
+  .setDescription(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
   .setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
 .addItems(app1.buildOptionItem('flight 3',
   ['', '', ''])
   .setTitle('flight 3')
-  .setDescription('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
+  .setDescription(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
   .setImage('http://example.com/recipe', 'Recipe')
 )
 );
