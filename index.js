@@ -152,17 +152,19 @@ function callApi(req, res) {
       app1.buildList('Flight Status')
     // Add the first item to the list
     .addItems(app1.buildOptionItem('Flight 1')
-      .setTitle(`From ${dep1} to ${arr1} Status ${actualStatus1}`)
+      .setTitle(` ${dep1} to ${arr1} Status ${actualStatus1}`)
       .setDescription(`D: ${departure1} A: ${arrival1}`)
        .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
       )
     // Add the second item to the list
     .addItems(app1.buildOptionItem('Flight 2')
-      .setTitle(`From ${dep2} to ${arr2} Status ${actualStatus2}`)
+      .setTitle(` ${dep2} to ${arr2} Status ${actualStatus2}`)
       .setDescription(`D: ${departure2} A: ${arrival2}`)
        .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
-    ).addItems(app1.buildOptionItem('Flight 3')
-    .setTitle(`From ${dep3} to ${arr3} Status ${actualStatus3}`)
+    )
+    //add third item
+    .addItems(app1.buildOptionItem('Flight 3')
+    .setTitle(` ${dep3} to ${arr3} Status ${actualStatus3}`)
       .setDescription(`D: ${departure3} A: ${arrival3}`)
       .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
     )
