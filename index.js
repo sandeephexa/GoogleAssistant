@@ -76,36 +76,39 @@ function callApi(req, res) {
                         // looping through 
                         var dictionary = fligarriv.flightStatuses;
                         var i = 0;
-                        var dep1,arr1,flightstatuses1,departure1,arrival1,numOfFlights1,dep2,arr2,flightstatuses2,departure2,arrival2,dep3,arr3,flightstatuses3,departure3,arrival3,actualStatus1,actualStatus2,actualStatus3;
+                       
+                        console.log("Flight statuses only",dictionary);
+                         console.log("i value increases by",i);
+                        
+                            console.log("this is from dictionary",dictionary[item].departureAirportFsCode);
+                        if (fligarriv.appendix.airlines[i].active) {
+
                             if (fligarriv.appendix.hasOwnProperty('airports')) {
-                                // flight 1
-            
-                                dep1 = dictionary[0].departureAirportFsCode;
-                                arr1 = dictionary[0].arrivalAirportFsCode;
-                              
-                                flightstatuses1 = dictionary[0].status;
-                                
-                                departure1=dictionary[0].operationalTimes.publishedDeparture.dateLocal;
-                                arrival1=dictionary[0].operationalTimes.publishedArrival.dateLocal;
-                                numOfFlights1 = fligarriv.flightStatuses.length;
-                                // flight 2
-                                dep2 = dictionary[1].departureAirportFsCode;
-                                arr2 = dictionary[1].arrivalAirportFsCode;
-                              
-                                flightstatuses2 = dictionary[1].status;
-                                
-                                departure2=dictionary[1].operationalTimes.publishedDeparture.dateLocal;
-                                arrival2=dictionary[1].operationalTimes.publishedArrival.dateLocal;
-                                
-                                // flight 3
-                                dep3 = dictionary[2].departureAirportFsCode;
-                                arr3 = dictionary[2].arrivalAirportFsCode;
-                              
-                                flightstatuses3 = dictionary[2].status;
-                                
-                                departure3=dictionary[2].operationalTimes.publishedDeparture.dateLocal;
-                                arrival3=dictionary[2].operationalTimes.publishedArrival.dateLocal;
+                                //flight1
+                                var dep1 = fligarriv.flightStatuses[0].departureAirportFsCode;
+                                var arr1 = fligarriv.flightStatuses[0].arrivalAirportFsCode;
                                
+                                var flightstatuses1 = fligarriv.flightStatuses[0].status;
+                                
+                                var departure1=fligarriv.flightStatuses[0].operationalTimes.publishedDeparture.dateLocal;
+                                var arrival1=fligarriv.flightStatuses[0].operationalTimes.publishedArrival.dateLocal;
+                                var numOfFlights = fligarriv.flightStatuses.length;
+                                //flight 2
+                                 var dep2 = fligarriv.flightStatuses[1].departureAirportFsCode;
+                                var arr2 = fligarriv.flightStatuses[1].arrivalAirportFsCode;
+                              
+                                var flightstatuses2 = fligarriv.flightStatuses[1].status;
+                                
+                                var departure2=fligarriv.flightStatuses[1].operationalTimes.publishedDeparture.dateLocal;
+                                var arrival2=fligarriv.flightStatuses[1].operationalTimes.publishedArrival.dateLocal;
+                                //flight 3
+                                 var dep3 = fligarriv.flightStatuses[2].departureAirportFsCode;
+                                var arr3 = fligarriv.flightStatuses[2].arrivalAirportFsCode;
+                              
+                                var flightstatuses3 = fligarriv.flightStatuses[2].status;
+                                
+                                var departure3=fligarriv.flightStatuses[2].operationalTimes.publishedDeparture.dateLocal;
+                                var arrival3=fligarriv.flightStatuses[2].operationalTimes.publishedArrival.dateLocal;
                                 //actual status
                                 var statusCodes = {  
                                 "A":"Active",
@@ -119,10 +122,9 @@ function callApi(req, res) {
                                 "U":"Unknown"
                                 };
                                 var result = "";
-                                actualStatus1 = getStatus(flightstatuses1);
-                                actualStatus2 = getStatus(flightstatuses2);
-                                actualStatus3 = getStatus(flightstatuses3);
-
+                                var actualStatus1 = getStatus(flightstatuses1);
+                                 var actualStatus2 = getStatus(flightstatuses2);
+                                 var actualStatus3 = getStatus(flightstatuses3);
 
                                 function getStatus(s)
                                 {
@@ -133,44 +135,54 @@ function callApi(req, res) {
                                 }
                                 console.log('Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .');
                                 console.log("next flight ");
-                            
+                                 
+                                 // app1.ask(` Flights ${numOfFlights}, flight Status is ${actualStatus}, \n departing  From ${dep}, \n To ${arr}, \n Departs at ${departure}, \n Arrives at ${arrival} .`);
+                                 // Basic card
+//                               app1.ask(app1.buildRichResponse()
+//     // Create a basic card and add it to the rich response
 
-
-                               
-                  console.log(dep1+arr1+flightstatuses1+departure1+arrival1+numOfFlights1+dep2+arr2+flightstatuses2+departure2+arrival2+dep3+arr3+flightstatuses3+departure3+arrival3+actualStatus1+actualStatus2+actualStatus3);
-
-
-                            }
-                
-            
-        
-  app1.askWithList(app1.buildRichResponse()
+//     .addSimpleResponse('${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}')
+//     .addBasicCard(app1.buildBasicCard(`${dep} => ${arr} \n Departure: \n${departure}\n Arrival \n${arrival}`)
+//       .setTitle('Flight Status')
+//       .setImage('https://lh3.googleusercontent.com/K7IBRJz-E1h4gR0wfpcCzwf1MVxV8LXHpqFfKctPdiC54e9GUNTqC_vi_Mhe4KWcB5XnT2ku=w50-h50-e365')
+//     )
+//   );
+app1.askWithList(app1.buildRichResponse()
 .addSimpleResponse('Flights')
 .addSuggestions(
-  ['Basic Card', 'List', 'Carousel', 'Suggestions']),
+  //['Basic Card', 'List', 'Carousel', 'Suggestions']),
 // Build a list
 app1.buildList('Statuses')
 // Add the first item to the list
 .addItems(app1.buildOptionItem('flight 1',
   [' ', '  ', ' ', ''])
   .setTitle('flight 1')
-  .setDescription(`Status1 ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
+  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
   .setImage(''))
 // Add the second item to the list
 .addItems(app1.buildOptionItem('flight2',
   ['', '', ' '])
   .setTitle('flight 2')
-  .setDescription(`Status2 ${actualStatus2} ${dep2} => ${arr2} \n Departure: \n${departure2}\n Arrival \n${arrival2}`)
+  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
   .setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
 .addItems(app1.buildOptionItem('flight 3',
   ['', '', ''])
   .setTitle('flight 3')
-  .setDescription(`Status3 ${actualStatus3} ${dep3} => ${arr3} \n Departure: \n${departure3}\n Arrival \n${arrival3}`)
+  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n Departure: \n${departure1}\n Arrival \n${arrival1}`)
   .setImage('http://example.com/recipe', 'Recipe')
 )
-);                  
+);
+
+                               
+                  
+
+
+                            }
+                        }
+                        //i++;
+                        
                     }
                 }
             
