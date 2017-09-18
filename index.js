@@ -151,7 +151,7 @@ function callApi(req, res) {
 // Build a list
 app1.buildList('Statuses')
 // Add the first item to the list
-.addItems(app1.buildOptionItem('flight 1',
+.addItems(app1.buildOptionItem('flight1',
   [' ', '  ', ' ', ''])
   .setTitle('flight 1')
   .setDescription(`Status1 ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}`)
@@ -164,13 +164,33 @@ app1.buildList('Statuses')
   .setImage('http://example.com/egypt', 'Egypt')
 )
 // Add third item to the list
-.addItems(app1.buildOptionItem('flight 3',
+.addItems(app1.buildOptionItem('flight3',
   ['', '', ''])
   .setTitle('flight 3')
   .setDescription(`Status3 ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}`)
   .setImage('http://example.com/recipe', 'Recipe')
 )
-);                  
+);        
+// item selected
+function itemSelected (app1) {
+  // Get the user's selection
+  const param = app.getContextArgument('actions_intent_option',
+    'OPTION').value;
+
+  // Compare the user's selections to each of the item's keys
+  if (!param) {
+    app.ask('You did not select any item from the list or carousel');
+  } else if (param === 'flight1') {
+    app.ask('Status1 ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}');
+  } else if (param === 'flight2') {
+    app.ask('Status2 ${actualStatus2} ${dep2} => ${arr2} \n\n Departure: \n\n${departure2}\n\n Arrival \n\n${arrival2}');
+  } else if (param === 'flight3') {
+    app.ask('Status3 ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}');
+  } else {
+    app.ask('You selected an unknown item from the list');
+  }
+}
+//   selection end       
                     }
                 }
             
