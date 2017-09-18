@@ -143,60 +143,49 @@ function callApi(req, res) {
                             }
                 
             
-        
-  app1.askWithList(app1.buildRichResponse()
-.addSimpleResponse('Flights')
-//  
-,
-// Build a list
-app1.buildList('Statuses')
-// Add the first item to the list
-.addItems(app1.buildOptionItem('flight1',
-  [' ', '  ', ' ', ''])
-  .setTitle('flight1')
-  .setDescription(`Status ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}`)
-  .itemSelected(flight1)
-  //.setImage('')
-  )
-// Add the second item to the list
-.addItems(app1.buildOptionItem('flight2',
-  ['', '', ' '])
-  .setTitle('flight2')
-  .setDescription(`Status ${actualStatus2} ${dep2} => ${arr2} \n\n Departure: \n\n${departure2}\n\n Arrival \n\n${arrival2}`)
-  .itemSelected(flight2)
-  //.setImage('http://example.com/egypt', 'Egypt')
-)
-// Add third item to the list
-.addItems(app1.buildOptionItem('flight3',
-  ['', '', ''])
-  .setTitle('flight3')
-  .setDescription(`Status ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}`)
-  .itemSelected(flight3)
-  //.setImage('http://example.com/recipe', 'Recipe')
-)
-);        
-// item selected
-function itemSelected (app1) {
-  // Get the user's selection
-  const param = app1.getContextArgument('actions_intent_option',
-    'OPTION').value;
-    console.log("item selected",param);
-
-  // Compare the user's selections to each of the item's keys
-  if (!param) {
+         app1.askWithList(app1.buildRichResponse()
+    .addSimpleResponse(`Status `)
+    .addSuggestions(['Yes', 'No']),
+      app1.buildList('Flight Status')
+    // Add the first item to the list
+    .addItems(app1.buildOptionItem('flight1 ${dep1} => ${arr1}')
+      .setTitle(`flight1 ${dep1} => ${arr1}`)
+      .setDescription(`Departure ${departure1.substring(0, departure1.length-4)}\n\Arrival:${arrival1.substring(0, arrival1.length-4)}`)
+       .setImage('https://www.dropbox.com/s/l1h4x5r6ox5f60q/rsz_departure.png?raw=1', 'Departure')
+      )
+    // Add the second item to the list
+    .addItems(app1.buildOptionItem('flight2 ${dep2} => ${arr2}')
+      .setTitle(`flight2 ${dep2} => ${arr2}`)
+      .setDescription(`Departure ${departure2.substring(0, departure2.length-4)}\n\Arrival:${arrival2.substring(0, arrival2.length-4)}`)
+      .setImage('https://www.dropbox.com/s/mcw8pgxq5akdn0v/rsz_arrival.png?raw=1', 'Arrival')
+    ).addItems(app1.buildOptionItem('flight3 ${dep3} => ${arr3}')
+    .setTitle(`flight3 ${dep3} => ${arr3}`)
+      .setDescription(`Departure ${departure3.substring(0, departure3.length-4)}\n\Arrival:${arrival3.substring(0, arrival3.length-4)}`)
+    )
+  ); 
       
-    app.ask('You did not select any item from the list or carousel');
-  } else if (param === 'flight1') {
-    app.ask('Status1 ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}');
-  } else if (param === 'flight2') {
-    app.ask('Status2 ${actualStatus2} ${dep2} => ${arr2} \n\n Departure: \n\n${departure2}\n\n Arrival \n\n${arrival2}');
-  } else if (param === 'flight3') {
-    app.ask('Status3 ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}');
-  } else {
-    app.ask('You selected an unknown item from the list');
-  }
-}
-//   selection end       
+// // item selected
+// function itemSelected (app1) {
+//   // Get the user's selection
+//   const param = app.getContextArgument('actions_intent_option',
+//     'OPTION').value;
+//     console.log("item selected",param);
+
+//   // Compare the user's selections to each of the item's keys
+//   if (!param) {
+      
+//     app.ask('You did not select any item from the list or carousel');
+//   } else if (param === 'flight1') {
+//     app.ask('Status1 ${actualStatus1} ${dep1} => ${arr1} \n\n Departure: \n\n${departure1}\n\n Arrival \n\n${arrival1}');
+//   } else if (param === 'flight2') {
+//     app.ask('Status2 ${actualStatus2} ${dep2} => ${arr2} \n\n Departure: \n\n${departure2}\n\n Arrival \n\n${arrival2}');
+//   } else if (param === 'flight3') {
+//     app.ask('Status3 ${actualStatus3} ${dep3} => ${arr3} \n\n Departure: \n\n${departure3}\n\n Arrival \n\n${arrival3}');
+//   } else {
+//     app.ask('You selected an unknown item from the list');
+//   }
+// }
+// //   selection end       
                     }
                 }
             
