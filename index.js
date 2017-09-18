@@ -175,7 +175,7 @@ app1.buildList('Statuses')
 // item selected
 function itemSelected (app1) {
   // Get the user's selection
-  const param = app.getContextArgument('actions_intent_option',
+  const param = app1.getContextArgument('actions_intent_option',
     'OPTION').value;
     console.log("item selected",param);
 
