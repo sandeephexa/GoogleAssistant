@@ -146,8 +146,8 @@ function callApi(req, res) {
         
   app1.askWithList(app1.buildRichResponse()
 .addSimpleResponse('Flights')
-.addSuggestions(
-  ['Basic Card', 'List', 'Carousel', 'Suggestions']),
+//  
+,
 // Build a list
 app1.buildList('Statuses')
 // Add the first item to the list
